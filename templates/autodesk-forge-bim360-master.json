@@ -328,7 +328,6 @@
         },
         "ForgeCallbackUrl": {
             "Description": "[Optional] Input your Forge Callback URL. e.g. example.com/api/forge/callback/oauth. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps. If you don't have one you will have to modify the value in the Forge Portal with the ALB DNS output after.",
-            "AllowedPattern": "(?!-)[a-zA-Z0-9-.]*(?<!-)",
             "ConstraintDescription": "Must be a valid fully-qualified callback url.",
             "Type": "String",
             "Default": ""

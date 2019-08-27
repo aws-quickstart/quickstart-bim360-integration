@@ -61,6 +61,7 @@
                     },
                     "Parameters": [
                         "ForgeSiteDomain",
+                        "ForgeCallbackUrl",
                         "ALBSSLCertificateARN",
                         "Route53HostedZoneId"
                     ]
@@ -132,6 +133,9 @@
                 },
                 "ForgeSiteDomain": {
                     "default": "Forge Site Domain"
+                },
+                "ForgeCallbackUrl":{
+                    "default": "Forge Callback Url"
                 },
                 "ALBSSLCertificateARN": {
                     "default": "ALB SSL Certificate ARN"
@@ -273,6 +277,12 @@
             "Description": "[Optional] Domain name of the Forge site. e.g. example.com. Valid FQDN required when using SSL.",
             "AllowedPattern": "(?!-)[a-zA-Z0-9-.]*(?<!-)",
             "ConstraintDescription": "Must be a valid fully-qualified domain name.",
+            "Type": "String",
+            "Default": ""
+        },
+        "ForgeCallbackUrl": {
+            "Description": "[Optional] Input your Forge Callback URL. e.g. example.com/api/forge/callback/oauth. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps. If you don't have one you will have to modify the value in the Forge Portal with the ALB DNS output after.",
+            "ConstraintDescription": "Must be a valid fully-qualified callback url.",
             "Type": "String",
             "Default": ""
         }
