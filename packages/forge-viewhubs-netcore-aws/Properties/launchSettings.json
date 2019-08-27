@@ -1,0 +1,17 @@
+{
+    "profiles": {
+        "Kestrel": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "environmentVariables": {
+                "FORGE_CLIENT_ID": "ID_TOKEN",
+                "FORGE_CLIENT_SECRET": "SECRET_TOKEN",
+                "FORGE_CALLBACK_URL": "CALLBACK_TOKEN",
+                "AWS_REGION": "REGION_TOKEN",
+                "ASPNETCORE_ENVIRONMENT": "Production",
+                "ASPNETCORE_DETAILEDERRORS": "1"
+            },
+            "applicationUrl": "http://*:3000/"
+        }
+    }
+}
