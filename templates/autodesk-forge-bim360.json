@@ -805,8 +805,8 @@
                             "ForgeLaunchConfigTemplate": {
                                 "Fn::If": [
                                     "UseNodeJSConfig",
-                                    "autodesk-forge-nodejs.json",
-                                    "autodesk-forge-netcore.json"
+                                    "autodesk-forge-bim360-nodejs.json",
+                                    "autodesk-forge-bim360-netcore.json"
                                 ]
                             }
                         }
