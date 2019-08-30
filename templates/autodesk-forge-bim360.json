@@ -134,7 +134,7 @@
                 "ForgeSiteDomain": {
                     "default": "Forge Site Domain"
                 },
-                "ForgeCallbackUrl":{
+                "ForgeCallbackUrl": {
                     "default": "Forge Callback Url"
                 },
                 "ALBSSLCertificateARN": {
@@ -329,17 +329,13 @@
             ]
         },
         "ForgeCallbackUrlCondition": {
-            "Fn::And": [
+            "Fn::Not": [
                 {
-                    "Fn::Not": [
+                    "Fn::Equals": [
                         {
-                            "Fn::Equals": [
-                                {
-                                    "Ref": "ForgeCallbackUrl"
-                                },
-                                ""
-                            ]
-                        }
+                            "Ref": "ForgeCallbackUrl"
+                        },
+                        ""
                     ]
                 }
             ]
@@ -970,30 +966,38 @@
         "ForgeCallbackURL": {
             "Description": "Forge Callback URL",
             "Value": {
-                "Fn::Sub": [
-                    "${AppScheme}://${AppDomain}/api/forge/callback/oauth",
+                "Fn::If": [
+                    "ForgeCallbackUrlCondition",
                     {
-                        "AppScheme": {
-                            "Fn::If": [
-                                "UseALBSSL",
-                                "https",
-                                "http"
-                            ]
-                        },
-                        "AppDomain": {
-                            "Fn::If": [
-                                "ForgeCallbackUrlCondition",
-                                {
-                                    "Ref": "ForgeCallbackUrl"
+                        "Ref": "ForgeCallbackUrl"
+                    },
+                    {
+                        "Fn::Sub": [
+                            "${AppScheme}://${AppDomain}/api/forge/callback/oauth",
+                            {
+                                "AppScheme": {
+                                    "Fn::If": [
+                                        "UseALBSSL",
+                                        "https",
+                                        "http"
+                                    ]
                                 },
-                                {
-                                    "Fn::GetAtt": [
-                                        "ApplicationLoadBalancer",
-                                        "DNSName"
+                                "AppDomain": {
+                                    "Fn::If": [
+                                        "ForgeSiteDomainRoute53Condition",
+                                        {
+                                            "Ref": "ForgeSiteDomain"
+                                        },
+                                        {
+                                            "Fn::GetAtt": [
+                                                "ApplicationLoadBalancer",
+                                                "DNSName"
+                                            ]
+                                        }
                                     ]
                                 }
-                            ]
-                        }
+                            }
+                        ]
                     }
                 ]
             }
