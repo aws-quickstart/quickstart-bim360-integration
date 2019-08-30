@@ -691,9 +691,15 @@
             "Properties": {
                 "Type": "String",
                 "Value": {
-                    "Ref": "ForgeCallbackUrl"
+                    "Fn::If": [
+                        "ForgeCallbackUrlCondition",
+                        {
+                            "Ref": "ForgeCallbackUrl"
+                        },
+                        "REPLACE-ME-with-ForgeCallbackURL"
+                    ]
                 },
-                "Description": "Forge Callback Url from SSM"
+                "Description": "Forge Callback Url"
             }
         },
         "SetupRole": {
