@@ -24,10 +24,6 @@
         "ParameterValue": "forge-test@example.com"
     },
     {
-        "ParameterKey": "ForgeApplicationRuntime",
-        "ParameterValue": "override_this"
-    },
-    {
         "ParameterKey": "ForgeClientId",
         "ParameterValue": "override_this"
     },
@@ -57,7 +53,7 @@
     },
     {
         "ParameterKey": "QSS3KeyPrefix",
-        "ParameterValue": "quickstart-autodesk-forge/"
+        "ParameterValue": "quickstart-autodesk-forge-bim360-integration/"
     },
     {
         "ParameterKey": "RemoteAccessCIDR",
@@ -82,5 +78,9 @@
     {
         "ParameterKey":"ForgeNodesMinSize",
         "ParameterValue": "2"
+    },
+    {
+        "ParameterKey": "ForgeApplicationRuntime",
+        "ParameterValue": "Node.js"
     }
 ]
