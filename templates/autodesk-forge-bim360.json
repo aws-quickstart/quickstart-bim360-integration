@@ -6,7 +6,7 @@
             "ParameterGroups": [
                 {
                     "Label": {
-                        "default": "Network Configuration"
+                        "default": "Network configuration"
                     },
                     "Parameters": [
                         "VPCID",
@@ -19,7 +19,7 @@
                 },
                 {
                     "Label": {
-                        "default": "Security Configuration"
+                        "default": "Security configuration"
                     },
                     "Parameters": [
                         "KeyPairName",
@@ -28,7 +28,7 @@
                 },
                 {
                     "Label": {
-                        "default": "Autodesk Forge Nodes Configuration"
+                        "default": "BIM360 Integration nodes configuration"
                     },
                     "Parameters": [
                         "ForgeNodeInstanceType",
@@ -40,7 +40,7 @@
                 },
                 {
                     "Label": {
-                        "default": "Autodesk Forge Application Runtime Language"
+                        "default": "BIM360 Integration application runtime configuration"
                     },
                     "Parameters": [
                         "ForgeApplicationRuntime"
@@ -48,27 +48,27 @@
                 },
                 {
                     "Label": {
-                        "default": "Autodesk Forge Credentials"
+                        "default": "Autodesk Forge credentials"
                     },
                     "Parameters": [
                         "ForgeClientId",
-                        "ForgeClientSecret"
+                        "ForgeClientSecret",
+                        "ForgeCallbackUrl"
                     ]
                 },
                 {
                     "Label": {
-                        "default": "[Optional] Forge Site Domain Configuration"
+                        "default": "[Optional] Forge site domain configuration"
                     },
                     "Parameters": [
                         "ForgeSiteDomain",
-                        "ForgeCallbackUrl",
                         "ALBSSLCertificateARN",
                         "Route53HostedZoneId"
                     ]
                 },
                 {
                     "Label": {
-                        "default": "AWS Quick Start Configuration"
+                        "default": "AWS Quick Start configuration"
                     },
                     "Parameters": [
                         "QSS3BucketName",
@@ -78,7 +78,7 @@
             ],
             "ParameterLabels": {
                 "BastionSecurityGroupID": {
-                    "default": "Bastion Security Group ID"
+                    "default": "Bastion security group ID"
                 },
                 "KeyPairName": {
                     "default": "Key pair name"
@@ -87,25 +87,25 @@
                     "default": "Operator email"
                 },
                 "ForgeApplicationRuntime": {
-                    "default": "Forge Server Side Language"
+                    "default": "Forge application runtime"
                 },
                 "ForgeClientId": {
-                    "default": "Forge Client ID"
+                    "default": "Forge client ID"
                 },
                 "ForgeClientSecret": {
-                    "default": "Forge Client Secret"
+                    "default": "Forge client secret"
                 },
                 "PrivateSubnet1ID": {
-                    "default": "Private Subnet 1 ID"
+                    "default": "Private subnet 1 ID"
                 },
                 "PrivateSubnet2ID": {
-                    "default": "Private Subnet 2 ID"
+                    "default": "Private subnet 2 ID"
                 },
                 "PublicSubnet1ID": {
-                    "default": "Public Subnet 1 ID"
+                    "default": "Public subnet 1 ID"
                 },
                 "PublicSubnet2ID": {
-                    "default": "Public Subnet 2 ID"
+                    "default": "Public subnet 2 ID"
                 },
                 "QSS3BucketName": {
                     "default": "Quick Start S3 bucket name"
@@ -120,28 +120,28 @@
                     "default": "VPC ID"
                 },
                 "ForgeNodeInstanceType": {
-                    "default": "Forge Nodes instance type"
+                    "default": "Forge nodes instance type"
                 },
                 "ForgeNodesDesiredCapacity": {
-                    "default": "Forge Nodes desired capacity"
+                    "default": "Forge nodes desired capacity"
                 },
                 "ForgeNodesMaxSize": {
-                    "default": "Forge Nodes max size"
+                    "default": "Forge nodes max size"
                 },
                 "ForgeNodesMinSize": {
-                    "default": "Forge Nodes min size"
+                    "default": "Forge nodes min size"
                 },
                 "ForgeSiteDomain": {
-                    "default": "Forge Site Domain"
+                    "default": "Forge site domain"
                 },
                 "ForgeCallbackUrl": {
-                    "default": "Forge Callback Url"
+                    "default": "Forge callback URL"
                 },
                 "ALBSSLCertificateARN": {
-                    "default": "ALB SSL Certificate ARN"
+                    "default": "ALB SSL certificate ARN"
                 },
                 "Route53HostedZoneId": {
-                    "default": "Route 53 Hosted Zone ID"
+                    "default": "Route 53 hosted zone ID"
                 }
             }
         }
@@ -254,7 +254,7 @@
                 "m5.4xlarge"
             ],
             "ConstraintDescription": "Must contain valid instance type",
-            "Default": "t2.large",
+            "Default": "t3.large",
             "Description": "Amazon EC2 instance type for the Autodesk Forge instances.",
             "Type": "String"
         },
