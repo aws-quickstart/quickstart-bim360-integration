@@ -1007,6 +1007,12 @@
                     }
                 ]
             }
+        },
+        "ForgeCallbackURLParameter": {
+            "Description": "Forge Callback URL SSM Parameter",
+            "Value": {
+                "Ref": "ForgeCallbackUrlSSMParameter"
+            }
         }
     }
 }

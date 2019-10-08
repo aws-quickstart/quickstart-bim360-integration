@@ -694,6 +694,15 @@
                 ]
             },
             "Description": "Forge Callback URL"
+        },
+        "ForgeCallbackURLParameter": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "ForgeStack",
+                    "Outputs.ForgeCallbackURLParameter"
+                ]
+            },
+            "Description": "Forge Callback URL SSM Parameter"
         }
     }
 }
