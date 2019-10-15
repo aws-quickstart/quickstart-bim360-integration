@@ -1,7 +1,7 @@
 [
     {
         "ParameterKey": "AvailabilityZones",
-        "ParameterValue": "sa-east-1b,sa-east-1c"
+        "ParameterValue": "$[taskcat_genaz_2]"
     },
     {
         "ParameterKey": "BastionAMIOS",
@@ -78,5 +78,9 @@
     {
         "ParameterKey":"NodesMinSize",
         "ParameterValue": "2"
+    },
+    {
+        "ParameterKey":"ApplicationRuntime",
+        "ParameterValue": "Node.js"
     }
 ]

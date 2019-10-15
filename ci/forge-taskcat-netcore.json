@@ -53,7 +53,7 @@
     },
     {
         "ParameterKey": "QSS3KeyPrefix",
-        "ParameterValue": "quickstart-autodesk-forge-bim360-integration/"
+        "ParameterValue": "quickstart-bim360-integration/"
     },
     {
         "ParameterKey": "RemoteAccessCIDR",
@@ -64,23 +64,23 @@
         "ParameterValue": "10.0.0.0/16"
     },
     {
-        "ParameterKey": "ForgeNodeInstanceType",
+        "ParameterKey": "NodeInstanceType",
         "ParameterValue": "t2.micro"
     },
     {
-        "ParameterKey":"ForgeNodesDesiredCapacity",
+        "ParameterKey":"NodesDesiredCapacity",
         "ParameterValue": "2"
     },
     {
-        "ParameterKey": "ForgeNodesMaxSize",
+        "ParameterKey": "NodesMaxSize",
         "ParameterValue": "4"
     },
     {
-        "ParameterKey":"ForgeNodesMinSize",
+        "ParameterKey":"NodesMinSize",
         "ParameterValue": "2"
     },
     {
-        "ParameterKey": "ForgeApplicationRuntime",
-        "ParameterValue": "Node.js"
+        "ParameterKey":"ApplicationRuntime",
+        "ParameterValue": ".NET Core"
     }
 ]
