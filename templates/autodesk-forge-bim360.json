@@ -28,7 +28,7 @@
                 },
                 {
                     "Label": {
-                        "default": "BIM360 Integration nodes configuration"
+                        "default": "BIM 360 integration nodes configuration"
                     },
                     "Parameters": [
                         "NodeInstanceType",
@@ -40,7 +40,7 @@
                 },
                 {
                     "Label": {
-                        "default": "BIM360 Integration application runtime configuration"
+                        "default": "BIM 360 integration application runtime configuration"
                     },
                     "Parameters": [
                         "ApplicationRuntime"
@@ -58,7 +58,7 @@
                 },
                 {
                     "Label": {
-                        "default": "[Optional] BIM360 Integration site domain configuration"
+                        "default": "[Optional] BIM 360 integration site domain configuration"
                     },
                     "Parameters": [
                         "SiteDomain",
@@ -87,7 +87,7 @@
                     "default": "Operator email"
                 },
                 "ApplicationRuntime": {
-                    "default": "BIM360 Integration application runtime"
+                    "default": "BIM 360 integration application runtime"
                 },
                 "ForgeClientId": {
                     "default": "Forge client ID"
@@ -120,19 +120,19 @@
                     "default": "VPC ID"
                 },
                 "NodeInstanceType": {
-                    "default": "BIM360 Integration nodes instance type"
+                    "default": "BIM 360 integration nodes instance type"
                 },
                 "NodesDesiredCapacity": {
-                    "default": "BIM360 Integration nodes desired capacity"
+                    "default": "BIM 360 integration nodes desired capacity"
                 },
                 "NodesMaxSize": {
-                    "default": "BIM360 Integration nodes max size"
+                    "default": "BIM 360 integration nodes max size"
                 },
                 "NodesMinSize": {
-                    "default": "BIM360 Integration nodes min size"
+                    "default": "BIM 360 integration nodes min size"
                 },
                 "SiteDomain": {
-                    "default": "BIM360 Integration site domain"
+                    "default": "BIM 360 integration site domain"
                 },
                 "ForgeCallbackUrl": {
                     "default": "Forge callback URL"
@@ -255,26 +255,26 @@
             ],
             "ConstraintDescription": "Must contain valid instance type",
             "Default": "t3.large",
-            "Description": "Amazon EC2 instance type for the BIM360 Integration instances.",
+            "Description": "Amazon EC2 instance type for the BIM 360 integration instances.",
             "Type": "String"
         },
         "NodesDesiredCapacity": {
             "Default": "2",
-            "Description": "The desired capacity for BIM360 Integration nodes in the Auto Scaling group.",
+            "Description": "The desired capacity for BIM 360 integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
         "NodesMaxSize": {
             "Default": "4",
-            "Description": "The maximum number of BIM360 Integration nodes in the Auto Scaling group.",
+            "Description": "The maximum number of BIM 360 integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
         "NodesMinSize": {
             "Default": "2",
-            "Description": "The minimum number of BIM360 Integration nodes in the Auto Scaling group.",
+            "Description": "The minimum number of BIM 360 integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
         "SiteDomain": {
-            "Description": "[Optional] Domain name of the BIM360 Integration site. e.g. example.com. Valid FQDN required when using SSL.",
+            "Description": "[Optional] Domain name of the BIM 360 integration site. e.g. example.com. Valid FQDN required when using SSL.",
             "AllowedPattern": "(?!-)[a-zA-Z0-9-.]*(?<!-)",
             "ConstraintDescription": "Must be a valid fully-qualified domain name.",
             "Type": "String",
@@ -939,7 +939,7 @@
             }
         },
         "BIM360IntegrationAppURL": {
-            "Description": "BIM360 Integration application URL",
+            "Description": "BIM 360 integration application URL",
             "Value": {
                 "Fn::Sub": [
                     "${AppScheme}://${AppDomain}",
