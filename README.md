@@ -1,3 +1,3 @@
-# quickstart-autodesk-forge-bim360-integration
+# quickstart-bim360-integration
 
 ![thumbnail](./thumbnail.png)
