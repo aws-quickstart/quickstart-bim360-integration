@@ -33,10 +33,10 @@
                         "default": "BIM360 Integration nodes configuration"
                     },
                     "Parameters": [
-                        "ForgeNodeInstanceType",
-                        "ForgeNodesMinSize",
-                        "ForgeNodesDesiredCapacity",
-                        "ForgeNodesMaxSize",
+                        "NodeInstanceType",
+                        "NodesMinSize",
+                        "NodesDesiredCapacity",
+                        "NodesMaxSize",
                         "OperatorEmail"
                     ]
                 },
@@ -45,7 +45,7 @@
                         "default": "BIM360 Integration application runtime configuration"
                     },
                     "Parameters": [
-                        "ForgeApplicationRuntime"
+                        "ApplicationRuntime"
                     ]
                 },
                 {
@@ -60,10 +60,10 @@
                 },
                 {
                     "Label": {
-                        "default": "[Optional] Forge site domain configuration"
+                        "default": "[Optional] BIM360 Integration site domain configuration"
                     },
                     "Parameters": [
-                        "ForgeSiteDomain",
+                        "SiteDomain",
                         "ALBSSLCertificateARN",
                         "Route53HostedZoneId"
                     ]
@@ -94,8 +94,8 @@
                 "OperatorEmail": {
                     "default": "Operator email"
                 },
-                "ForgeApplicationRuntime": {
-                    "default": "Forge application runtime"
+                "ApplicationRuntime": {
+                    "default": "BIM360 Integration application runtime"
                 },
                 "ForgeClientId": {
                     "default": "Forge client ID"
@@ -127,20 +127,20 @@
                 "VPCCIDR": {
                     "default": "VPC CIDR"
                 },
-                "ForgeNodeInstanceType": {
-                    "default": "Forge nodes instance type"
+                "NodeInstanceType": {
+                    "default": "BIM360 Integration nodes instance type"
                 },
-                "ForgeNodesDesiredCapacity": {
-                    "default": "Forge nodes desired capacity"
+                "NodesDesiredCapacity": {
+                    "default": "BIM360 Integration nodes desired capacity"
                 },
-                "ForgeNodesMaxSize": {
-                    "default": "Forge nodes max size"
+                "NodesMaxSize": {
+                    "default": "BIM360 Integration nodes max size"
                 },
-                "ForgeNodesMinSize": {
-                    "default": "Forge nodes min size"
+                "NodesMinSize": {
+                    "default": "BIM360 Integration nodes min size"
                 },
-                "ForgeSiteDomain": {
-                    "default": "Forge site domain"
+                "SiteDomain": {
+                    "default": "BIM360 Integration site domain"
                 },
                 "ForgeCallbackUrl": {
                     "default": "Forge callback URL"
@@ -197,13 +197,13 @@
             "Description": "Email address that notifications of any scaling operations will be sent to.",
             "Type": "String"
         },
-        "ForgeApplicationRuntime": {
+        "ApplicationRuntime": {
             "AllowedValues": [
                 "Node.js",
                 ".NET Core"
             ],
             "Default": "Node.js",
-            "Description": "Define what kind of server side Autodesk Forge application you will be deploying",
+            "Description": "Define what kind of server side BIM360 Integration application you will be deploying",
             "Type": "String"
         },
         "ForgeClientId": {
@@ -278,7 +278,7 @@
             "Description": "The CIDR block for the VPC.",
             "Type": "String"
         },
-        "ForgeNodeInstanceType": {
+        "NodeInstanceType": {
             "AllowedValues": [
                 "t2.nano",
                 "t2.micro",
@@ -301,26 +301,26 @@
             ],
             "ConstraintDescription": "Must contain valid instance type",
             "Default": "t3.large",
-            "Description": "Amazon EC2 instance type for the Autodesk Forge instances.",
+            "Description": "Amazon EC2 instance type for the BIM360 Integration instances.",
             "Type": "String"
         },
-        "ForgeNodesDesiredCapacity": {
+        "NodesDesiredCapacity": {
             "Default": "2",
-            "Description": "The desired capacity for Forge nodes in the Auto Scaling group.",
+            "Description": "The desired capacity for BIM360 Integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
-        "ForgeNodesMaxSize": {
+        "NodesMaxSize": {
             "Default": "4",
-            "Description": "The maximum number of Forge nodes in the Auto Scaling group.",
+            "Description": "The maximum number of BIM360 Integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
-        "ForgeNodesMinSize": {
+        "NodesMinSize": {
             "Default": "2",
-            "Description": "The minimum number of Forge nodes in the Auto Scaling group.",
+            "Description": "The minimum number of BIM360 Integration nodes in the Auto Scaling group.",
             "Type": "String"
         },
-        "ForgeSiteDomain": {
-            "Description": "[Optional] Domain name of the Forge site. e.g. example.com. Valid FQDN required when using SSL.",
+        "SiteDomain": {
+            "Description": "[Optional] Domain name of the BIM360 Integration site. e.g. example.com. Valid FQDN required when using SSL.",
             "AllowedPattern": "(?!-)[a-zA-Z0-9-.]*(?<!-)",
             "ConstraintDescription": "Must be a valid fully-qualified domain name.",
             "Type": "String",
@@ -409,14 +409,14 @@
                             {
                                 "Fn::Equals": [
                                     {
-                                        "Ref": "ForgeSiteDomain"
+                                        "Ref": "SiteDomain"
                                     },
                                     ""
                                 ]
                             }
                         ]
                     },
-                    "AssertDescription": "Parameter ForgeSiteDomain cannot be empty and must provide FQDN e.g. example.com, when ALBSSLCertificateARN or Route53HostedZoneId values are provided."
+                    "AssertDescription": "Parameter SiteDomain cannot be empty and must provide FQDN e.g. example.com, when ALBSSLCertificateARN or Route53HostedZoneId values are provided."
                 }
             ]
         },
@@ -452,7 +452,7 @@
                                                 "t3.2xlarge"
                                             ],
                                             {
-                                                "Ref": "ForgeNodeInstanceType"
+                                                "Ref": "NodeInstanceType"
                                             }
                                         ]
                                     }
@@ -571,7 +571,7 @@
                 }
             }
         },
-        "ForgeStack": {
+        "BIM360IntegrationStack": {
             "DependsOn": "BastionStack",
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
@@ -579,17 +579,17 @@
                     "Fn::Sub": "https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}templates/autodesk-forge-bim360.json"
                 },
                 "Parameters": {
-                    "ForgeNodeInstanceType": {
-                        "Ref": "ForgeNodeInstanceType"
+                    "NodeInstanceType": {
+                        "Ref": "NodeInstanceType"
                     },
-                    "ForgeNodesDesiredCapacity": {
-                        "Ref": "ForgeNodesDesiredCapacity"
+                    "NodesDesiredCapacity": {
+                        "Ref": "NodesDesiredCapacity"
                     },
-                    "ForgeNodesMaxSize": {
-                        "Ref": "ForgeNodesMaxSize"
+                    "NodesMaxSize": {
+                        "Ref": "NodesMaxSize"
                     },
-                    "ForgeNodesMinSize": {
-                        "Ref": "ForgeNodesMinSize"
+                    "NodesMinSize": {
+                        "Ref": "NodesMinSize"
                     },
                     "BastionSecurityGroupID": {
                         "Fn::GetAtt": [
@@ -603,8 +603,8 @@
                     "OperatorEmail": {
                         "Ref": "OperatorEmail"
                     },
-                    "ForgeApplicationRuntime": {
-                        "Ref": "ForgeApplicationRuntime"
+                    "ApplicationRuntime": {
+                        "Ref": "ApplicationRuntime"
                     },
                     "ForgeClientId": {
                         "Ref": "ForgeClientId"
@@ -651,8 +651,8 @@
                     "Route53HostedZoneId": {
                         "Ref": "Route53HostedZoneId"
                     },
-                    "ForgeSiteDomain": {
-                        "Ref": "ForgeSiteDomain"
+                    "SiteDomain": {
+                        "Ref": "SiteDomain"
                     },
                     "ForgeCallbackUrl":{
                         "Ref": "ForgeCallbackUrl"
@@ -671,25 +671,25 @@
         "ALBDNSName": {
             "Value": {
                 "Fn::GetAtt": [
-                    "ForgeStack",
+                    "BIM360IntegrationStack",
                     "Outputs.ALBDNSName"
                 ]
             },
             "Description": "ALB DNS Name"
         },
-        "ForgeAppURL": {
+        "BIM360IntegrationAppURL": {
             "Value": {
                 "Fn::GetAtt": [
-                    "ForgeStack",
-                    "Outputs.ForgeAppURL"
+                    "BIM360IntegrationStack",
+                    "Outputs.BIM360IntegrationAppURL"
                 ]
             },
-            "Description": "Forge Application URL"
+            "Description": "BIM360 Integration application URL"
         },
         "ForgeCallbackURL": {
             "Value": {
                 "Fn::GetAtt": [
-                    "ForgeStack",
+                    "BIM360IntegrationStack",
                     "Outputs.ForgeCallbackURL"
                 ]
             },
@@ -698,7 +698,7 @@
         "ForgeCallbackURLParameter": {
             "Value": {
                 "Fn::GetAtt": [
-                    "ForgeStack",
+                    "BIM360IntegrationStack",
                     "Outputs.ForgeCallbackURLParameter"
                 ]
             },
