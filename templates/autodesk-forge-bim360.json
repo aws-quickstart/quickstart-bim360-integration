@@ -172,18 +172,18 @@
                 ".NET Core"
             ],
             "Default": "Node.js",
-            "Description": "Define what kind of server side Autodesk Forge application you will be deploying",
+            "Description": "Defines what kind of server-side BIM 360 integration application you will be deploying",
             "Type": "String"
         },
         "ForgeClientId": {
             "ConstraintDescription": "Input your Forge Client ID",
-            "Description": "Client ID of your Forge application. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps.",
+            "Description": "The client ID of your Forge application. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps.",
             "NoEcho": "True",
             "Type": "String"
         },
         "ForgeClientSecret": {
             "ConstraintDescription": "Input your Forge Client Secret",
-            "Description": "Client Secret of your Forge application. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps.",
+            "Description": "The client secret of your Forge application. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps.",
             "NoEcho": "True",
             "Type": "String"
         },
@@ -196,11 +196,11 @@
             "Type": "AWS::EC2::Subnet::Id"
         },
         "PublicSubnet1ID": {
-            "Description": "The ID of the public subnet 1 in Availability Zone 1 in your existing VPC (e.g., subnet-9bc642ac)",
+            "Description": "The ID of the public subnet in Availability Zone 1 in your existing VPC (e.g., subnet-9bc642ac)",
             "Type": "AWS::EC2::Subnet::Id"
         },
         "PublicSubnet2ID": {
-            "Description": "The ID of the public subnet 1 in Availability Zone 2 in your existing VPC (e.g., subnet-e3246d8e)",
+            "Description": "The ID of the public subnet in Availability Zone 2 in your existing VPC (e.g., subnet-e3246d8e)",
             "Type": "AWS::EC2::Subnet::Id"
         },
         "QSS3BucketName": {
@@ -281,7 +281,7 @@
             "Default": ""
         },
         "ForgeCallbackUrl": {
-            "Description": "[Optional] Input your Forge Callback URL. e.g. example.com/api/forge/callback/oauth. You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps. If you don't have one you will have to modify the value in the Forge Portal with the ALB DNS output after.",
+            "Description": "Enter your Forge callback URL (e.g., https://<your-domain>/api/forge/callback/oauth). You can obtain it on the Forge Developer Platform at https://developer.autodesk.com/myapps. If you don't have one, you must modify the value in the Forge portal with the ForgeCallbackURL output after.",
             "ConstraintDescription": "Must be a valid fully-qualified callback url.",
             "Type": "String",
             "Default": ""
