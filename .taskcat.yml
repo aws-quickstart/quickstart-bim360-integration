@@ -1,0 +1,111 @@
+project:
+  name: quickstart-bim360-integration
+  owner: quickstart-eng@amazon.com
+  shorten_stack_name: true
+  package_lambda: false
+  regions:
+  - ap-northeast-1
+  - ap-northeast-2
+  - ap-south-1
+  - ap-southeast-1
+  - ap-southeast-2
+  - ca-central-1
+  - eu-central-1
+  - eu-west-1
+  - eu-west-2
+  - eu-west-3
+  - sa-east-1
+  - us-east-1
+  - us-east-2
+  - us-west-1
+  - us-west-2
+tests:
+  bim360-netcore:
+    parameters:
+      ApplicationRuntime: .NET Core
+      AvailabilityZones: $[taskcat_genaz_2]
+      BastionAMIOS: Amazon-Linux-HVM
+      BastionInstanceType: t2.micro
+      ForgeClientId: override_this
+      ForgeClientSecret: override_this
+      KeyPairName: $[taskcat_getkeypair]
+      NodeInstanceType: t2.micro
+      NodesDesiredCapacity: '2'
+      NodesMaxSize: '4'
+      NodesMinSize: '2'
+      OperatorEmail: forge-test@example.com
+      PrivateSubnet1CIDR: 10.0.0.0/19
+      PrivateSubnet2CIDR: 10.0.32.0/19
+      PublicSubnet1CIDR: 10.0.128.0/20
+      PublicSubnet2CIDR: 10.0.144.0/20
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      QSS3KeyPrefix: quickstart-bim360-integration/
+      RemoteAccessCIDR: 10.0.0.0/16
+      VPCCIDR: 10.0.0.0/16
+    regions:
+    - ap-northeast-2
+    - ap-southeast-1
+    - ca-central-1
+    - eu-west-1
+    - eu-west-3
+    - us-east-2
+    - us-west-2
+    template: templates/autodesk-forge-bim360-master.template.yaml
+  bim360-nodejs:
+    parameters:
+      ApplicationRuntime: Node.js
+      AvailabilityZones: $[taskcat_genaz_2]
+      BastionAMIOS: Amazon-Linux-HVM
+      BastionInstanceType: t2.micro
+      ForgeClientId: override_this
+      ForgeClientSecret: override_this
+      KeyPairName: $[taskcat_getkeypair]
+      NodeInstanceType: t2.micro
+      NodesDesiredCapacity: '2'
+      NodesMaxSize: '4'
+      NodesMinSize: '2'
+      OperatorEmail: forge-test@example.com
+      PrivateSubnet1CIDR: 10.0.0.0/19
+      PrivateSubnet2CIDR: 10.0.32.0/19
+      PublicSubnet1CIDR: 10.0.128.0/20
+      PublicSubnet2CIDR: 10.0.144.0/20
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      QSS3KeyPrefix: quickstart-bim360-integration/
+      RemoteAccessCIDR: 10.0.0.0/16
+      VPCCIDR: 10.0.0.0/16
+    regions:
+    - ap-northeast-1
+    - ap-south-1
+    - ap-southeast-2
+    - eu-central-1
+    - eu-west-2
+    - us-east-1
+    - us-west-1
+    template: templates/autodesk-forge-bim360-master.template.yaml
+  bim360-sa-east-1:
+    parameters:
+      AvailabilityZones: sa-east-1b,sa-east-1c
+      BastionAMIOS: Amazon-Linux-HVM
+      BastionInstanceType: t2.micro
+      ForgeClientId: override_this
+      ForgeClientSecret: override_this
+      KeyPairName: $[taskcat_getkeypair]
+      NodeInstanceType: t2.micro
+      NodesDesiredCapacity: '2'
+      NodesMaxSize: '4'
+      NodesMinSize: '2'
+      OperatorEmail: forge-test@example.com
+      PrivateSubnet1CIDR: 10.0.0.0/19
+      PrivateSubnet2CIDR: 10.0.32.0/19
+      PublicSubnet1CIDR: 10.0.128.0/20
+      PublicSubnet2CIDR: 10.0.144.0/20
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      QSS3KeyPrefix: quickstart-bim360-integration/
+      RemoteAccessCIDR: 10.0.0.0/16
+      VPCCIDR: 10.0.0.0/16
+    regions:
+    - sa-east-1
+    template: templates/autodesk-forge-bim360-master.template.yaml
