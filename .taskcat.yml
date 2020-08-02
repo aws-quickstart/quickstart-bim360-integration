@@ -24,7 +24,7 @@ tests:
     parameters:
       ApplicationRuntime: .NET Core
       AvailabilityZones: $[taskcat_genaz_2]
-      BastionAMIOS: Amazon-Linux-HVM
+      BastionAMIOS: Amazon-Linux2-HVM
       BastionInstanceType: t2.micro
       ForgeClientId: override_this
       ForgeClientSecret: override_this
@@ -56,7 +56,7 @@ tests:
     parameters:
       ApplicationRuntime: Node.js
       AvailabilityZones: $[taskcat_genaz_2]
-      BastionAMIOS: Amazon-Linux-HVM
+      BastionAMIOS: Amazon-Linux2-HVM
       BastionInstanceType: t2.micro
       ForgeClientId: override_this
       ForgeClientSecret: override_this
@@ -87,7 +87,7 @@ tests:
   bim360-sa-east-1:
     parameters:
       AvailabilityZones: sa-east-1b,sa-east-1c
-      BastionAMIOS: Amazon-Linux-HVM
+      BastionAMIOS: Amazon-Linux2-HVM
       BastionInstanceType: t2.micro
       ForgeClientId: override_this
       ForgeClientSecret: override_this
