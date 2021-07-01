@@ -6,6 +6,16 @@ Description:
   and related resources. You will be billed for the AWS resources used if you
   create a stack from this template. (qs-1q4sbh1su)
 Metadata:
+  LintSpellExclude:
+    - Application
+    - Autodesk
+    - Balancer
+    - Forge
+    - Load
+  cfn-lint:
+    config:
+      ignore_checks:
+        - W9006 # temporary to get rid of warnings
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:

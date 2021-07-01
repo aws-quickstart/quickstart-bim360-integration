@@ -1,7 +1,9 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
 Description: This template deploys Autodesk Forge Auto Scaling launch configuration
-  for .NetCore runtime.
+  for .NetCore runtime. (qs-1s23636dd)
+Metadata:
+  cfn-lint: { config: { ignore_checks: [W9002, W9003, W9006] } }
 Parameters:
   KeyPairName:
     Description: The name of an existing public/private key pair, which allows you
@@ -43,6 +45,7 @@ Parameters:
   LatestAmazonLinux2Id:
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+    Description: Latest Amazon Linux 2 AMI ID from AWS Systems Manager Parameter Store.
   WorkloadSecurityGroup:
     Description: ID of the Forge workload security group (e.g., sg-7f16e910).
     Type: AWS::EC2::SecurityGroup::Id
