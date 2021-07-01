@@ -51,7 +51,7 @@ tests:
     - eu-west-3
     - us-east-2
     - us-west-2
-    template: templates/autodesk-forge-bim360-master.template.yaml
+    template: templates/autodesk-forge-bim360-main.template.yaml
   bim360-nodejs:
     parameters:
       ApplicationRuntime: Node.js
@@ -83,7 +83,7 @@ tests:
     - eu-west-2
     - us-east-1
     - us-west-1
-    template: templates/autodesk-forge-bim360-master.template.yaml
+    template: templates/autodesk-forge-bim360-main.template.yaml
   bim360-sa-east-1:
     parameters:
       AvailabilityZones: sa-east-1b,sa-east-1c
@@ -108,4 +108,4 @@ tests:
       VPCCIDR: 10.0.0.0/16
     regions:
     - sa-east-1
-    template: templates/autodesk-forge-bim360-master.template.yaml
+    template: templates/autodesk-forge-bim360-main.template.yaml
