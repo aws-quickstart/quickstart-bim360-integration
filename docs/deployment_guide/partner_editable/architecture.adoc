@@ -20,9 +20,10 @@ internet access for resources in the private subnets.*
 ** A Linux bastion host in an Auto Scaling group to allow inbound Secure
 Shell (SSH) access to Amazon Elastic Compute Cloud (Amazon EC2) instances in public and private subnets.*
 * In the private subnets:
-** <item>.
-** <item>.
-// Add bullet points for any additional components that are included in the deployment. Ensure that the additional components are shown in the architecture diagram. End each bullet with a period.
-* <describe any additional components>.
+** BIM 360 integration application server instances across both Availability Zones, to ensure high availability.
+** Auto Scaling enabled for the BIM 360 integration nodes cluster, to automatically add or remove servers based on their use. Auto Scaling provides additional servers during peak hours and lowers costs by removing servers during off hours. This functionality is tightly integrated with the Application Load Balancer, and automatically adds and removes instances from the load balancer. The default installation sets up low and high CPU-based thresholds for scaling the instance capacity up or down. You can modify these thresholds during launch and after deployment.
+* Elastic Load Balancing, which provides HTTP and HTTPS load balancing across the BIM 360 integration instances. This Quick Start uses an Application Load Balancer, which is configured to use either HTTP or HTTPS.
+* Optionally, Amazon Route 53 as your public Domain Name System (DNS) for resolving your BIM 360 integration site’s domain name. When you choose to deploy an application with a custom domain and Security Sockets Layer (SSL) certificate, a new RecordSet in your pre-existing Route 53 Hosted Zone is created.
+* AWS Systems Manager parameters in the Systems Manager Parameter Store to securely store the Forge client ID, secret, and callback URL.
 
 [.small]#* The template that deploys this Partner Solution into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.#

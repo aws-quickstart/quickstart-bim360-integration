@@ -1,3 +1,28 @@
 //Include any predeployment steps here, such as signing up for a Marketplace AMI or making any changes to a partner account. If there are no predeployment steps, leave this file empty.
 
 == Predeployment steps
+
+=== Obtain Autodesk Developer Credentials
+
+This Quick Start requires Autodesk developer credentials.
+
+. If you don’t have a Forge Autodesk account, sign up for an account on the https://forge.autodesk.com/[Forge Developer Portal].
+. In the Forge Developer Portal, choose https://forge.autodesk.com/myapps/create[Create App]. For your new app provide the callback URL that you will use as a parameter in the Partner Solution template. If you don’t have one, you have two options.
+.. If you have a pre-existing Route53 domain, SSL certificate imported in AWS Certificate Manager, and know the domain you are going to use to deploy the application, you can use `https://<your-domain>/api/forge/callback/oauth`
+.. If you are deploying this for testing and would like to use the Application Load Balancer DNS for your application, you can initially use http://localhost:3000/api/forge/callback/oauth[_http://localhost:3000/api/forge/callback/oauth_] as the callback URL. However, you must replace this value with the value of *ForgeCallbackURL* found in the outputs of your CloudFormation stack after the deployment is complete.
+. Take note of the Client ID and Client Secret. You will need to input these, when you launch the solution.
+
+
+=== Prepare your BIM 360 account
+
+Log in to Autodesk BIM 360 Account Admin console. Note that you need account administrator permissions.
+
+.  If you have more than one account, select the account you want to integrate with the app.
+.  From the toolbar, select *SETTINGS > Apps & Integrations*.
+.  Choose *Add integration*.
+.  Choose *BIM 360 Account Administration* and *BIM 360 Docs*, and choose *Next*.
+.  Choose *I’m the developer*, and choose *Next*.
+.  In the *Forge Client ID* and *App Name* fields, enter the Forge client ID and app name that the app retailer has provided.
+.  Select the *I have saved the Account ID information securely* checkbox, and then choose *Save*.
+
+Congratulations! You can now access your BIM 360 Docs files.

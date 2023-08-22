@@ -1,3 +1,57 @@
 // Include any postdeployment steps here, such as steps necessary to test that the deployment was successful. If there are no postdeployment steps, leave this file empty.
 
 == Postdeployment steps
+
+=== Update the Forge callback URL
+
+This step is required only if you did not specify a value for the Forge callback URL or Forge site domain parameters when launching the CloudFormation stack. If you have a valid Forge callback URL for your application, you can skip this step.
+
+==== Update the SSM parameter
+
+. From the CloudFormation outputs section, note the value of *ForgeCallbackURLParameter*.
+. In the AWS Systems Manager console, navigate to Parameter Store, and then select the *Forge Callback URL SSM Parameter*. Choose *Edit*.
+. In the *Value* field, enter the *Forge Callback URL* output, and then choose *Save changes*.
++
+[#postdeploy1]
+.Updating the Forge Callback URL SSM parameter
+image::../docs/deployment_guide/images/image8.png[PostDeploy1]
+
+==== Update the Autodesk Forge app
+
+. In your Forge portal, go to the app you are using for the BIM 360 integration, and then choose *Edit*.
+. In the *Callback URL* field, enter the *Forge Callback URL*, and then choose *Save*.
++
+[#postdeploy2]
+.Updating the Callback URL in the Forge app
+image::../docs/deployment_guide/images/image9.png[PostDeploy2]
+
+
+=== Test the deployment
+
+When the AWS CloudFormation template has successfully created the stack, all server nodes will be running with the BIM 360 integration installed in your AWS account.
+
+. To access the application, in your preferred browser, go to the BIM 360 integration application URL listed in the *Outputs* tab shown earlier, if no Forge callback URL was specified.
++
+A default page prompts you to log in to your BIM 360 account using your Autodesk ID.
++
+[#postdeploy3]
+.BIM 360 integration login
+image::../docs/deployment_guide/images/image10.png[PostDeploy3]
++
+. Log in using your Autodesk ID to access your BIM 360 hubs that have been enabled in your custom integrations.
++
+[#postdeploy4]
+.Autodesk ID single sign-on page
+image::../docs/deployment_guide/images/image11.png[PostDeploy4]
++
+Once you are successfully logged in, you have access to all your BIM 360 hubs.
++
+[#postdeploy5]
+.Users and BIM 360 hubs enabled for your account
+image::../docs/deployment_guide/images/image12.png[PostDeploy5]
++
+.  Select a model version. The Forge Viewer loads with the 3D/2D CAD model.
++
+[#postdeploy6]
+.BIM 360 integration showing CAD in Forge Viewer
+image::../docs/deployment_guide/images/image13.png[PostDeploy6]
